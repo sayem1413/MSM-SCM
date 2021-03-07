@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>MSIS</title>
+    <title>Administration</title>
 
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
@@ -22,10 +22,10 @@
     </section>
     <section class="login-content">
         <div class="logo">
-            <h1>MSIS</h1>
+            <h1>Admin Login</h1>
         </div>
         <div class="login-box">
-            <form class="login-form" method="POST" action="{{ route('login') }}">
+            <form class="login-form" method="POST" action="{{ route('admin.login') }}">
             @csrf
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>SIGN IN</h3>
                 <div class="form-group">
@@ -54,14 +54,14 @@
                     </label>
                     </div>
                     <!-- <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Forgot Password ?</a></p> -->
-                    {{-- <p class="semibold-text mb-2"><a href="{{ route('password.request') }}">Forgot Password ?</a></p> --}}
+                    <p class="semibold-text mb-2"><a href="{{ route('admin_password_request') }}">Forgot Password ?</a></p>
                 </div>
                 </div>
                 <div class="form-group btn-container">
                 <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>SIGN IN</button>
                 </div>
             </form>
-            <!-- <form class="forget-form" method="POST" action="">
+            <!-- <form class="forget-form" method="POST" action="{{ route('admin_password_email') }}">
                 @csrf
                 <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Forgot Password ?</h3>
                 @if (session('status'))
