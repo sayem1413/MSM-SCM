@@ -70,6 +70,11 @@ export const routes = [
         component: Dashboard,
         name: 'dashboard',
     },
+    {
+        path: '/home',
+        component: Dashboard,
+        name: 'home',
+    },
     // Multi level Category
     // {
     //     path: '/category/list',

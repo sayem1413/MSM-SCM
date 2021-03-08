@@ -3,12 +3,13 @@
 {{ __('Reset Password') }}
 @endsection
 @section('content')
-        <form class="login-form" method="POST" action="{{ route('password.update') }}">
+        <form class="login-form p-3" method="POST" action="{{ route('password.update') }}">
         @csrf
             <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>{{ __('Reset Password') }}</h3>
+            <input type="hidden" name="token" value="{{ $token }}">
             <div class="form-group">
                 <label class="control-label">{{ __('E-Mail') }}</label>
-                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" placeholder="Email" required>
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('email') }}</strong>
@@ -17,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label class="control-label">{{ __('Password') }}</label>
-                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required>
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $errors->first('password') }}</strong>

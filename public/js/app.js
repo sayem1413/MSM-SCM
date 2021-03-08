@@ -2207,6 +2207,10 @@ var routes = [{
   path: '/',
   component: _components_Dashboard_DashboardComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default,
   name: 'dashboard'
+}, {
+  path: '/home',
+  component: _components_Dashboard_DashboardComponent_vue__WEBPACK_IMPORTED_MODULE_0__.default,
+  name: 'home'
 } // Multi level Category
 // {
 //     path: '/category/list',
