@@ -65,98 +65,98 @@ export default {
     },
     actions:{
         allCategoryList(context, request = '?id=0' ){
-            let url = ROOT_URL+"admin/all-categories" + request;
+            let url = ROOT_URL+"all-categories" + request;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setAllCategories',response.data.all_categories);
                 })
         },
-        categoryList(context, pageNo){
-            let url = ROOT_URL+"admin/categories";
+        categoryList(context, pageNo = 1){
+            let url = ROOT_URL+"categories";
             axios.get(url)
                 .then((response)=>{
                     context.commit('setCategories',response.data.categories.data);
                 })
         },
         manufacturerList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/manufacturers?page="+pageNo;
+            let url = ROOT_URL+"manufacturers?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setManufacturers',response.data.all_manufacturers);
                 })
         },
         colorList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/colors?page="+pageNo;
+            let url = ROOT_URL+"colors?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setColors',response.data.colors);
                 })
         },
         materialList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/materials?page="+pageNo;
+            let url = ROOT_URL+"materials?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setMaterials',response.data.materials);
                 })
         },
         technicalConsultantList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/technical-consultants?page="+pageNo;
+            let url = ROOT_URL+"technical-consultants?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setTechnicalConsultants',response.data.technicalConsultants);
                 })
         },
         tagList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/tags?page="+pageNo;
+            let url = ROOT_URL+"tags?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setTags',response.data.tags);
                 })
         },
         productList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/products?page="+pageNo;
+            let url = ROOT_URL+"products?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setProducts',response.data.products);
                 })
         },
         inventoryLogList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/inventorylogs?page="+pageNo;
+            let url = ROOT_URL+"inventorylogs?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setInventoryLogs',response.data.inventorylogs);
                 })
         },
         administrationList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/administrations?page="+pageNo;
+            let url = ROOT_URL+"administrations?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setAdministrations',response.data.administrations);
                 })
         },
         customerList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/customers?page="+pageNo;
+            let url = ROOT_URL+"customers?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setCustomers',response.data.customers);
                 })
         },
         discountList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/discounts?page="+pageNo;
+            let url = ROOT_URL+"discounts?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setDiscounts',response.data.discounts);
                 })
         },
         sliderImageList(context, pageNo = 1 ){
-            let url = ROOT_URL+"admin/slider-images?page="+pageNo;
+            let url = ROOT_URL+"slider-images?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setSliderImages',response.data.sliderImages);
                 })
         },
         stockNotificationSubscriberList( context, pageNo = 1 ) {
-            let url = ROOT_URL+"admin/get-stock-subscribers?page="+pageNo;
+            let url = ROOT_URL+"get-stock-subscribers?page="+pageNo;
             axios.get(url)
                 .then((response)=>{
                     context.commit('setStockNotificationSubscribers',response.data.stockNotifications);

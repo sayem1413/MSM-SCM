@@ -1,8 +1,8 @@
 import Dashboard from '../components/Dashboard/DashboardComponent.vue';
 
-// import CategoryList from '../components/Category/CategoryList.vue';
-// import CategoryAdd from '../components/Category/CategoryAdd.vue';
-// import CategoryEdit from '../components/Category/CategoryEdit.vue';
+import CategoryList from '../components/Category/CategoryList.vue';
+import CategoryAdd from '../components/Category/CategoryAdd.vue';
+import CategoryEdit from '../components/Category/CategoryEdit.vue';
 
 // import ManufacturerList from '../components/Manufacturer/ManufacturerList.vue';
 // import ManufacturerAdd from '../components/Manufacturer/ManufacturerAdd.vue';
@@ -76,21 +76,21 @@ export const routes = [
         name: 'home',
     },
     // Multi level Category
-    // {
-    //     path: '/category/list',
-    //     component: CategoryList,
-    //     name: 'category_list',
-    // },
-    // {
-    //     path: '/category/add',
-    //     component: CategoryAdd,
-    //     name: 'category_add',
-    // },
-    // {
-    //     path: '/category/edit/:categoryId',
-    //     component: CategoryEdit,
-    //     name: 'category_edit',
-    // },
+    {
+        path: '/category/list',
+        component: CategoryList,
+        name: 'category_list',
+    },
+    {
+        path: '/category/add',
+        component: CategoryAdd,
+        name: 'category_add',
+    },
+    {
+        path: '/category/edit/:categoryId',
+        component: CategoryEdit,
+        name: 'category_edit',
+    },
     // // Manufacturer
     // {
     //     path: '/manufacturer/list',

@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,10 @@ Route::post('password/confirm', [ConfirmPasswordController::class, 'confirm']);
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/', [HomeController::class, 'index'])->name('root');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::resource('categories', CategoryController::class);
+    Route::get('all-categories',  [CategoryController::class,'getCategoryList'])->name('all_categories');
+    Route::post('update-parent-category',  [CategoryController::class,'updatePatentCategory'])->name('update_parent_category');
+    Route::post('update-child-category/{id}',  [CategoryController::class,'updateChildCategory'])->name('update_child_category');
+    Route::get('/{vue?}', [HomeController::class, 'index'])->where('vue','^(?!panel).*$');
 });
