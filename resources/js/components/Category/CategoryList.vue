@@ -7,20 +7,17 @@
         </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-10 offset-1">
+                <div class="col-md-12 col-sm-12">
                     <div class="card bg-light">
                         <div class="card-header bg-transparent">
                             <div class="row">
-                                <div class="col-md-4">
-                                    <h5 class="float-left">Category List</h5>
+                                <div class="col-md-6 col-sm-6">
+                                    <span class="font-weight-bold">Category List</span>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6 col-sm-6">
                                     <ul class="nav nav-tabs float-right">
                                         <li class="nav-item">
-                                            <router-link :to="{name:'category_list'}" class="nav-link text-light bg-info active font-weight-bold">List</router-link>
-                                        </li>
-                                        <li class="nav-item">
-                                            <router-link :to="{name:'category_add'}" class="nav-link text-light bg-info font-weight-bold">Add New</router-link>
+                                            <router-link :to="{name:'category_add'}" class="nav-link text-light bg-info font-weight-bold">Add New + </router-link>
                                         </li>
                                     </ul>
                                 </div>

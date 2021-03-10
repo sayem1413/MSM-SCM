@@ -6,10 +6,10 @@
         <li>
             <router-link :to="{ name: 'category_list'}" class="app-menu__item" v-bind:class="{ active: isCategoryActive }" ><i class="app-menu__icon fa fa-th-list"></i><i class="fas fa-layer-group"></i><span class="app-menu__label">Category</span></router-link>
         </li>
-        <!-- <li>
+        <li>
             <router-link :to="{ name: 'manufacturer_list'}" class="app-menu__item" v-bind:class="{ active: isManufacturerActive }" ><i class="app-menu__icon fa fa-industry"></i><span class="app-menu__label">Manufacturer</span></router-link>
         </li>
-        <li>
+        <!-- <li>
             <router-link :to="{ name: 'color_list'}" class="app-menu__item" v-bind:class="{ active: isColorActive }" ><i class="app-menu__icon fa fa-tint"></i><span class="app-menu__label">Color</span></router-link>
         </li>
         <li>
@@ -66,10 +66,10 @@ export default {
             let route = this.$route.name;
             return route === 'category_list' || route === 'category_add' || route === 'category_edit';
         },
-        // isManufacturerActive(){
-        //     let route = this.$route.name;
-        //     return route === 'manufacturer_add' || route === 'manufacturer_edit' || route === 'manufacturer_list';
-        // },
+        isManufacturerActive(){
+            let route = this.$route.name;
+            return route === 'manufacturer_add' || route === 'manufacturer_edit' || route === 'manufacturer_list';
+        },
         // isColorActive(){
         //     let route = this.$route.name;
         //     return route === 'color_list' || route === 'color_add' || route === 'color_edit';

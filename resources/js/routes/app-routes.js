@@ -4,9 +4,9 @@ import CategoryList from '../components/Category/CategoryList.vue';
 import CategoryAdd from '../components/Category/CategoryAdd.vue';
 import CategoryEdit from '../components/Category/CategoryEdit.vue';
 
-// import ManufacturerList from '../components/Manufacturer/ManufacturerList.vue';
-// import ManufacturerAdd from '../components/Manufacturer/ManufacturerAdd.vue';
-// import ManufacturerEdit from '../components/Manufacturer/ManufacturerEdit.vue';
+import ManufacturerList from '../components/Manufacturer/ManufacturerList.vue';
+import ManufacturerAdd from '../components/Manufacturer/ManufacturerAdd.vue';
+import ManufacturerEdit from '../components/Manufacturer/ManufacturerEdit.vue';
 
 // import ColorList from '../components/Color/ColorList.vue';
 // import ColorAdd from '../components/Color/ColorAdd.vue';
@@ -91,22 +91,22 @@ export const routes = [
         component: CategoryEdit,
         name: 'category_edit',
     },
-    // // Manufacturer
-    // {
-    //     path: '/manufacturer/list',
-    //     component: ManufacturerList,
-    //     name: 'manufacturer_list',
-    // },
-    // {
-    //     path: '/manufacturer/add',
-    //     component: ManufacturerAdd,
-    //     name: 'manufacturer_add',
-    // },
-    // {
-    //     path: '/manufacturer/edit/:manufacturerId',
-    //     component: ManufacturerEdit,
-    //     name: 'manufacturer_edit',
-    // },
+    // Manufacturer
+    {
+        path: '/manufacturer/list',
+        component: ManufacturerList,
+        name: 'manufacturer_list',
+    },
+    {
+        path: '/manufacturer/add',
+        component: ManufacturerAdd,
+        name: 'manufacturer_add',
+    },
+    {
+        path: '/manufacturer/edit/:manufacturerId',
+        component: ManufacturerEdit,
+        name: 'manufacturer_edit',
+    },
     // // Color
     // {
     //     path: '/color/list',

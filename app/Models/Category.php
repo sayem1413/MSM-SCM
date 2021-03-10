@@ -10,7 +10,7 @@ use App\Traits\Model\Uuid;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kalnoy\Nestedset\NodeTrait;
 
-class Category extends BaseModel
+class Category extends Model
 {
     use HasFactory, SoftDeletes, Autofill, Uuid, NodeTrait;
 
@@ -25,8 +25,4 @@ class Category extends BaseModel
         'image_path',
         'active',
     ]; */
-
-    protected $hidden = [
-        'deleted_at'
-    ];
 }
