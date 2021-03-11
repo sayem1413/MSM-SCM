@@ -9,6 +9,9 @@ use App\Http\Controllers\Auth\ConfirmPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\UsageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +47,9 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('categories', CategoryController::class);
     Route::resource('manufacturers', ManufacturerController::class);
+    Route::resource('colors', ColorController::class);
+    Route::resource('materials', MaterialController::class);
+    Route::resource('usages', UsageController::class);
     Route::get('all-categories',  [CategoryController::class,'getCategoryList'])->name('all_categories');
     Route::post('update-parent-category',  [CategoryController::class,'updatePatentCategory'])->name('update_parent_category');
     Route::post('update-child-category/{id}',  [CategoryController::class,'updateChildCategory'])->name('update_child_category');

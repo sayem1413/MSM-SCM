@@ -55,8 +55,8 @@
 
                                     <div class="form-group col-md-12 col-sm-12">
                                         <router-link :to="{name:'manufacturer_list'}" class="btn btn-secondary btn-lg btn-sm">Cancle</router-link>
-                                        <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="updateManufacturer(0)">Update</button>
-                                        <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="updateManufacturer(1)">Update & Edit</button>
+                                        <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="updateManufacturer(0)">Update & List</button>
+                                        <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="updateManufacturer(1)">Update</button>
                                     </div>
                                 </form>
                             </div>
@@ -93,10 +93,6 @@ export default {
                 description:'',
                 logo:'',
             },
-            translatedManufacturer: {
-                translatedName:'',
-                translatedDescription:'',
-            },
             getManufacturers: [],
             isLoading: true,
             errors:[],
@@ -104,14 +100,12 @@ export default {
         };
     },
     mounted(){
-        this.manufacturerInfo('lt');
+        this.manufacturerInfo();
     },
     methods: {
         manufacturerInfo(lang){
             let url = ROOT_URL+"manufacturers/";
-            let langParam = '?lang='+lang;
-            this.language = lang;
-            axios.get(url + this.$route.params.manufacturerId + langParam).then((response)=>{
+            axios.get(url + this.$route.params.manufacturerId ).then((response)=>{
                 this.manufacturer = response.data.manufacturer;
                 this.manufacturer.logo = response.data.manufacturer.logo_path? ROOT_URL+response.data.manufacturer.logo_path :'';
                 this.isLoading = false
@@ -200,7 +194,7 @@ export default {
                 });
             }
             if( errorStatus === 401 ){
-                window.location.href = "{{ route('admin.login') }}";
+                window.location.href = "{{ route('login') }}";
             }
         }
     }

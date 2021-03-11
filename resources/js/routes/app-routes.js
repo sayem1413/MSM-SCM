@@ -8,13 +8,17 @@ import ManufacturerList from '../components/Manufacturer/ManufacturerList.vue';
 import ManufacturerAdd from '../components/Manufacturer/ManufacturerAdd.vue';
 import ManufacturerEdit from '../components/Manufacturer/ManufacturerEdit.vue';
 
-// import ColorList from '../components/Color/ColorList.vue';
-// import ColorAdd from '../components/Color/ColorAdd.vue';
-// import ColorEdit from '../components/Color/ColorEdit.vue';
+import ColorList from '../components/Color/ColorList.vue';
+import ColorAdd from '../components/Color/ColorAdd.vue';
+import ColorEdit from '../components/Color/ColorEdit.vue';
 
-// import MaterialList from '../components/Material/MaterialList.vue';
-// import MaterialAdd from '../components/Material/MaterialAdd.vue';
-// import MaterialEdit from '../components/Material/MaterialEdit.vue';
+import MaterialList from '../components/Material/MaterialList.vue';
+import MaterialAdd from '../components/Material/MaterialAdd.vue';
+import MaterialEdit from '../components/Material/MaterialEdit.vue';
+
+import UsageList from '../components/Usage/UsageList.vue';
+import UsageAdd from '../components/Usage/UsageAdd.vue';
+import UsageEdit from '../components/Usage/UsageEdit.vue';
 
 // import TechnicalConsultantList from '../components/TechnicalConsultant/TechnicalConsultantList.vue';
 // import TechnicalConsultantAdd from '../components/TechnicalConsultant/TechnicalConsultantAdd.vue';
@@ -107,38 +111,54 @@ export const routes = [
         component: ManufacturerEdit,
         name: 'manufacturer_edit',
     },
-    // // Color
-    // {
-    //     path: '/color/list',
-    //     component: ColorList,
-    //     name: 'color_list',
-    // },
-    // {
-    //     path: '/color/add',
-    //     component: ColorAdd,
-    //     name: 'color_add',
-    // },
-    // {
-    //     path: '/color/edit/:colorId',
-    //     component: ColorEdit,
-    //     name: 'color_edit',
-    // },
-    // // Materials
-    // {
-    //     path: '/material/list',
-    //     component: MaterialList,
-    //     name: 'material_list',
-    // },
-    // {
-    //     path: '/material/add',
-    //     component: MaterialAdd,
-    //     name: 'material_add',
-    // },
-    // {
-    //     path: '/material/edit/:materialId',
-    //     component: MaterialEdit,
-    //     name: 'material_edit',
-    // },
+    // Color
+    {
+        path: '/color/list',
+        component: ColorList,
+        name: 'color_list',
+    },
+    {
+        path: '/color/add',
+        component: ColorAdd,
+        name: 'color_add',
+    },
+    {
+        path: '/color/edit/:colorId',
+        component: ColorEdit,
+        name: 'color_edit',
+    },
+    // Materials
+    {
+        path: '/material/list',
+        component: MaterialList,
+        name: 'material_list',
+    },
+    {
+        path: '/material/add',
+        component: MaterialAdd,
+        name: 'material_add',
+    },
+    {
+        path: '/material/edit/:materialId',
+        component: MaterialEdit,
+        name: 'material_edit',
+    },
+    // usages
+    {
+        path: '/usage/list',
+        component: UsageList,
+        name: 'usage_list',
+    },
+    {
+        path: '/usage/add',
+        component: UsageAdd,
+        name: 'usage_add',
+    },
+    {
+        path: '/usage/edit/:usageId',
+        component: UsageEdit,
+        name: 'usage_edit',
+    },
     // // Technical Consultant
     // {
     //     path: '/technical-consultant/list',

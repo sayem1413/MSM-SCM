@@ -52,7 +52,7 @@ export default {
                     });
                 }
                 if( e.response.status === 401 ){
-                    window.location.href = "{{ route('admin.login') }}";
+                    window.location.href = "{{ route('login') }}";
                 }
             });
             // this.$store.dispatch("deleteItem", "categories/", id, "categoryList" );

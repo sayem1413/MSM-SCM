@@ -11,11 +11,14 @@
         </li>
         <!-- <li>
             <router-link :to="{ name: 'color_list'}" class="app-menu__item" v-bind:class="{ active: isColorActive }" ><i class="app-menu__icon fa fa-tint"></i><span class="app-menu__label">Color</span></router-link>
+        </li> -->
+        <li>
+            <router-link :to="{ name: 'material_list'}" class="app-menu__item" v-bind:class="{ active: isMaterialActive }" ><i class="app-menu__icon fa fa-medium"></i><span class="app-menu__label">Gen. Material Class</span></router-link>
         </li>
         <li>
-            <router-link :to="{ name: 'material_list'}" class="app-menu__item" v-bind:class="{ active: isMaterialActive }" ><i class="app-menu__icon fa fa-medium"></i><span class="app-menu__label">Material</span></router-link>
+            <router-link :to="{ name: 'usage_list'}" class="app-menu__item" v-bind:class="{ active: isUsageActive }" ><i class="app-menu__icon fa fa-medium"></i><span class="app-menu__label">Usage Class</span></router-link>
         </li>
-        <li>
+        <!-- <li>
             <router-link :to="{ name: 'technical_consultant_list'}" class="app-menu__item" v-bind:class="{ active: isTechnicalConsultantActive }" ><i class="app-menu__icon fa fa-assistive-listening-systems"></i><span class="app-menu__label">Sales Manager</span></router-link>
         </li>
         <li>
@@ -74,10 +77,14 @@ export default {
         //     let route = this.$route.name;
         //     return route === 'color_list' || route === 'color_add' || route === 'color_edit';
         // },
-        // isMaterialActive(){
-        //     let route = this.$route.name;
-        //     return route === 'material_list' || route === 'material_add' || route === 'material_edit';
-        // },
+        isMaterialActive(){
+            let route = this.$route.name;
+            return route === 'material_list' || route === 'material_add' || route === 'material_edit';
+        },
+        isUsageActive(){
+            let route = this.$route.name;
+            return route === 'usage_list' || route === 'usage_add' || route === 'usage_edit';
+        },
         // isTechnicalConsultantActive(){
         //     let route = this.$route.name;
         //     return route === 'technical_consultant_list' || route === 'technical_consultant_add' || route === 'technical_consultant_edit';

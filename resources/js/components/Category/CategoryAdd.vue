@@ -194,7 +194,7 @@ export default {
                 });
             }
             if( errorStatus === 401 ){
-                window.location.href = "{{ route('admin.login') }}";
+                window.location.href = "{{ route('login') }}";
             }
         }
     }

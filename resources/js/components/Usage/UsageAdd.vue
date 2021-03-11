@@ -12,12 +12,12 @@
                         <div class="card-header bg-transparent">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
-                                    <span class="font-weight-bold">Manufacturer Add</span>
+                                    <span class="font-weight-bold">Usage Class Add</span>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <ul class="nav nav-tabs float-right">
                                         <li class="nav-item">
-                                            <router-link :to="{name:'manufacturer_list'}" class="nav-link text-light bg-info font-weight-bold">Back to List</router-link>
+                                            <router-link :to="{name:'usage_list'}" class="nav-link text-light bg-info font-weight-bold"> Back to List</router-link>
                                         </li>
                                     </ul>
                                 </div>
@@ -26,36 +26,21 @@
                         <div class="card-body">
                             <form class="form-horizontal" method="post" >
                                 <div class="form-group col-md-12 col-sm-12">
-                                    <label class="font-weight-bold mr-3">Active</label>
-                                    <input v-model="manufacturer.active" class="mt-1" type="checkbox" name="active"/>
-                                </div>
-                                <div class="form-group col-md-12 col-sm-12">
                                     <label class="font-weight-bold">Name</label>
-                                    <input class="form-control" v-model="manufacturer.name" type="text" name="name"/>
+                                    <input class="form-control" v-model="usage.name" type="text" name="name"/>
                                     <span class="text-danger" v-if="errors.name">{{ errors.name[0] }}</span>
                                 </div>
 
                                 <div class="form-group col-md-12 col-sm-12">
-                                    <label class="font-weight-bold">Logo</label>
-                                    <input class="form-control" type="file" ref="logo" name="logo" @change="changeImage($event)" />
-                                    <span class="text-danger" v-if="errors.logo_path">{{ errors.logo_path[0] }}</span>
-                                    <span v-if="manufacturer.logo != ''">
-                                        <img :src="manufacturer.logo" class="m-2" width="200" height="200">
-                                        <br/>
-                                        <button class="btn btn-danger m-2" @click="removeImage()" type="button" >remove</button>
-                                    </span>
-                                </div>
-
-                                <div class="form-group col-md-12 col-sm-12">
                                     <label class="font-weight-bold">Description</label>
-                                    <textarea class="form-control" v-model="manufacturer.description" type="text" name="description"></textarea>
+                                    <textarea type="classic" class="form-control" v-model="usage.description" name="description" id="description"></textarea>
                                     <span class="text-danger" v-if="errors.description">{{ errors.description[0] }}</span>
                                 </div>
 
                                 <div class="form-group col-md-12 col-sm-12">
-                                    <router-link :to="{name:'manufacturer_list'}" class="btn btn-secondary btn-lg btn-sm">Cancle</router-link>
-                                    <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="addManufacturer(0)">Save & List</button>
-                                    <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="addManufacturer(1)">Save & Edit</button>
+                                    <router-link :to="{name:'usage_list'}" class="btn btn-secondary btn-lg btn-sm">Cancle</router-link>
+                                    <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="addUsage(0)">Save & List</button>
+                                    <button class="btn btn-secondary btn-lg btn-sm" type="button" @click.prevent="addUsage(1)">Save & Edit</button>
                                 </div>
                             </form>
                         </div>
@@ -76,55 +61,29 @@ Vue.use(VeeValidateLaravel);
 import ClipLoader from 'vue-spinner/src/ClipLoader.vue';
 
 export default {
-    name: 'manufacturer_add',
+    name: 'usage_add',
     components: {
         ClipLoader,
     },
     data: function() {
         return {
-            manufacturer: {
-                active:1, 
+            usage: {
                 name:'',
                 description:'',
-                logo:'',
+                image:'',
             },
-            getManufacturers: [],
+            getUsages: [],
             isLoading: false,
             errors:[],
         };
     },
     methods: {
-        changeImage(event) {
-            let file = event.target.files[0];
-            if (file.size > 9*1024*1024*5) {
-                this.$swal({
-                    title: "Oops...",
-                    text: "Something went wrong!",
-                    showConfirmButton: false,
-                    timer: 3000,
-                    icon: 'error',
-                });
-            } else {
-                let reader = new FileReader();
-                reader.onload = event => {
-                    this.manufacturer.logo = event.target.result;
-                };
-                reader.readAsDataURL(file);
-            }
-        },
-        removeImage(){
-            this.manufacturer.logo = '';
-            this.$refs.logo.value = '';
-        },
-        addManufacturer( edit ) {
+        addUsage( edit ) {
             this.isLoading = true;
-            this.manufacturer.active ? this.manufacturer.active = 1 : this.manufacturer.active = 0;
-            let url = ROOT_URL+"manufacturers";
+            let url = ROOT_URL+"usages";
             var formData = new FormData();
-            formData.append("name", this.manufacturer.name);
-            formData.append("logo_path", this.manufacturer.logo != '' ? this.$refs.logo.files[0] : '');
-            formData.append("description", this.manufacturer.description);
-            formData.append("active", this.manufacturer.active);
+            formData.append("name", this.usage.name);
+            formData.append("description", this.usage.description);
             
             axios.post(url, formData, {
                 headers: {
@@ -132,17 +91,18 @@ export default {
                 }
             }).then((response) => {
                 if( edit == 1 ){
-                    this.$router.push({name: "manufacturer_edit", params:{ manufacturerId:response.data.data.id }}) //( "/manufacturer/edit/"+ response.data.data.id);
+                    this.$router.push({name: 'usage_edit', params: { usageId: response.data.data.id}});
                 } else {
-                    this.$router.push({ name:"manufacturer_list"});
+                    this.$router.push({name: 'usage_list'});
                 }
                 this.$swal({
                     position: 'top',
-                    title: 'Manufacturer Added',
+                    title: 'usage Added',
                     showConfirmButton: false,
                     timer: 3000,
                     icon: 'success',
                 });
+                console.log(response.data)
             })
             .catch((e) => {
                 this.errorHandler(e.response.status, e.response.data.errors, e.response.statusText );

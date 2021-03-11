@@ -7,6 +7,7 @@ export default {
         manufacturers:[],
         colors:[],
         materials:[],
+        usages:[],
         technicalConsultants:[],
         tags:[],
         products:[],
@@ -34,6 +35,9 @@ export default {
         },
         getMaterials(state){
             return state.materials
+        },
+        getUsages(state){
+            return state.usages
         },
         getTechnicalConsultants(state){
             return state.technicalConsultants
@@ -97,6 +101,13 @@ export default {
             axios.get(url)
                 .then((response)=>{
                     context.commit('setMaterials',response.data.materials);
+                })
+        },
+        usageList(context, pageNo = 1 ){
+            let url = ROOT_URL+"usages?page="+pageNo;
+            axios.get(url)
+                .then((response)=>{
+                    context.commit('setUsages',response.data.usages);
                 })
         },
         technicalConsultantList(context, pageNo = 1 ){
@@ -178,6 +189,9 @@ export default {
         },
         setMaterials(state,data){
             return state.materials = data
+        },
+        setUsages(state,data){
+            return state.usages = data
         },
         setTechnicalConsultants(state,data){
             return state.technicalConsultants = data
